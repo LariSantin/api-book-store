@@ -9,7 +9,7 @@ Requirements:
  
 
 Dependencies:
-express, prisma ORM
+express, prisma ORM, bcrypt, jsonwebtoken
 
 - next features: 
 financial

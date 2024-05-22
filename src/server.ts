@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
+import rootRouter from './routes';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.use('/api', rootRouter);
 
 const server = http.createServer(app);
 
