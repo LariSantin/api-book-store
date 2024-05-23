@@ -29,11 +29,11 @@ model User {
 model Book {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  code     String    @unique
-  title    String  
-  author   String
-  price    BigInt
-  quantity BigInt
+  code      String    @unique
+  title     String  
+  author    String
+  price     Float
+  quantity  Int
   customers BooksCustomers[]
 
   @@map("books")

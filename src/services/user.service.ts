@@ -1,6 +1,9 @@
-import { createUserDB, findUser } from "../repositories/userRepository";
+import { createUserDB, findUser } from "../repositories/user.repository";
 import { hashSync, compareSync } from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
+import { BadRequestsException } from "../exceptions/bad-requests";
+import { ErroCode, ErroMessage } from "../exceptions/http.exception";
+import { JWT_SECRET } from "../secrets";
 
 
 
@@ -9,7 +12,7 @@ export const createUser = async (email: string, password: string, name: string) 
     let user = await findUser(email);
 
     if(user){
-        throw Error('User already exists!');
+        throw new BadRequestsException(ErroMessage.USER_ALREADY_EXISTS, ErroCode.BadRequest);
     }
 
     user = await createUserDB(
@@ -25,16 +28,14 @@ export const createUser = async (email: string, password: string, name: string) 
 
 export const loginUser = async (email: string, password: string) => {
 
-    const JWT_SECRET = 'akkgfderthb5479mznxcweiuio46767';
-
     let user = await findUser(email);
 
     if(!user){
-        throw Error('User does not exists!');
+        throw new BadRequestsException(ErroMessage.USER_ALREADY_EXISTS, ErroCode.BadRequest);
     }
 
     if(!compareSync(password, user.password)){
-        throw Error('Incorrect password.');
+        throw new BadRequestsException(ErroMessage.INCORRECT_PASSWORD, ErroCode.BadRequest);
     }
  
     const token = jwt.sign({

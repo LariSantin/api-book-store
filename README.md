@@ -18,6 +18,12 @@ Initialize project:
 
 Routes:
 
+generate migration:
+```
+ npx prisma migrate dev --name namemigration 
+```
+
+run: yarn start 
 
 Create postgres container:
 

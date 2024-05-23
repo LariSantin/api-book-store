@@ -6,6 +6,8 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
 import rootRouter from './routes';
+import { errorMiddleware } from './middlewares/errors';
+import { PORT } from './secrets';
 
 const app = express();
 
@@ -19,8 +21,10 @@ app.use(bodyParser.json());
 
 app.use('/api', rootRouter);
 
+app.use(errorMiddleware);
+
 const server = http.createServer(app);
 
-server.listen(8080, () => {
-    console.log('Server running on http://localhost:8080/');
+server.listen(PORT, () => {
+    console.log('Server running!');
 });
