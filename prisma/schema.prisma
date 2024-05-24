@@ -44,7 +44,7 @@ model Customer {
   createdAt DateTime @default(now())
   cpf       String   @unique
   name      String
-  birthday  DateTime?
+  birthday  DateTime? @db.Date
   adress    String
   books     BooksCustomers[]   
 
@@ -58,8 +58,7 @@ model BooksCustomers{
   customer   Customer @relation(fields: [customerId], references: [id])
   customerId String 
   assignedAt DateTime @default(now())
-  assignedBy String
-
+  qtBookSold Int
   @@id([bookId, customerId])
 
   @@map("bookscustomers")

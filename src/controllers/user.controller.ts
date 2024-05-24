@@ -1,15 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
-import { createUser, loginUser } from '../services/user.service';
+import UserService from '../services/user.service';
 
+const userService = new UserService();
 
 export const signup = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const {email, password, name } = req.body;
 
-        let user = await createUser(email, password, name);
+        let user = await userService.createUser(email, password, name);
     
-        res.send(user);
+        return res.send(user);
     } catch(err){
         next(err);
     }
@@ -21,9 +22,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     try {
         const {email, password } = req.body;
 
-        const {user, token} = await loginUser(email, password);
+        const {user, token} = await userService.loginUser(email, password);
 
-        res.json({user, token});
+        return res.json({user, token});
     } catch(err){
         next(err);
     }

@@ -1,15 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
-import { createBook, listAllBooks } from '../services/book.service';
+import BookService from '../services/book.service';
 
+const bookService = new BookService();
 
-export const registerBook = async (req: Request, res: Response, next: NextFunction) => {
+export const createBook = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const { code, title, author, quantity, price }= req.body;
 
-        let book = await createBook(code, title, author, quantity, price);
+        let book = await bookService.createBook(code, title, author, quantity, price);
     
-        res.send(book);
+        return res.send(book);
     } catch(err){
         next(err);
     }
@@ -19,8 +20,21 @@ export const registerBook = async (req: Request, res: Response, next: NextFuncti
 export const listAll = async(req: Request, res: Response, next: NextFunction) => {
     try{
 
-        return await listAllBooks();
+        let all = await bookService.listAll();
 
+        return res.send(all);
+
+    } catch(err){
+        next(err);
+    }
+}
+
+export const findById = async (req: Request, res: Response, next: NextFunction) =>  {
+    try{
+
+        const { id } = req.params;
+        let book =  await bookService.findById(id);
+        return res.send(book);
     } catch(err){
         next(err);
     }

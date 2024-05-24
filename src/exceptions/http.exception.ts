@@ -43,5 +43,10 @@ export enum ErroMessage {
     USER_ALREADY_EXISTS = 'User has already been registered!',
     INCORRECT_PASSWORD = 'Password incorrect',
     UNAUTHORIZED = 'Unauthorized',
-    BOOK_ALREADY_EXISTS = 'Book has already been registered!'
+    BOOK_ALREADY_EXISTS = 'Book has already been registered!',
+    CUSTOMER_ALREADY_EXISTS = 'Customer has already been registered!',
+    BOOK_NOT_FOUND = 'Book does not exists',
+    CUSTOMER_NOT_FOUND = 'Customer does not exists',
+    BOOK_SOLD_OUT = 'Book out of stock',
+    INVALIDY_QUANTITY= 'Invalidy quantity'
 }
