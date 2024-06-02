@@ -1,0 +1,146 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Book store api",
+        "summary": "A book store manager.",
+        "description": "This is a sample server for a book store.",
+        "contact": {
+          "name": "API Support",
+          "url": "https://www.example.com/support",
+          "email": "lari_santin@hotmail.com"
+        }
+     },
+    "servers": [
+        {
+            "url": "http://localhost:8080/api",
+            "description":"api test"
+        },
+        {
+            "url": "http://xxxxx/api",
+            "description":"api production"
+        }
+    ],
+    
+    "paths": {
+        "/users/signup": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books/all": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books/findbyid/:id": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/customers": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/customers/findbyid/:id": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/bc/sale": {
+            "post": {
+                "summary": "",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

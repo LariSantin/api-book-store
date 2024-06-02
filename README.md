@@ -18,12 +18,16 @@ Initialize project:
 
 Routes:
 
+
+
 generate migration:
 ```
  npx prisma migrate dev --name namemigration 
 ```
 
 run: yarn start 
+
+run coverage test: npm test -- --coverage
 
 Create postgres container:
 
@@ -36,3 +40,22 @@ sudo docker run --name pgadmin --network=postgres-network -p 15432:80 -e "PGADMI
 ```
 
 ![alt text](image.png)
+
+Structure:
+my-project/
+│
+├── src/
+│   ├── controllers/
+│   │   └── userController.ts
+│   ├── services/
+│   │   └── userService.ts
+│   ├── repositories/
+│   │   └── userRepository.ts
+│   └── models/
+│       └── user.ts
+├── __tests__/
+│   ├── userController.test.ts
+│   ├── userService.test.ts
+│   └── userRepository.test.ts
+├── jest.config.js
+└── tsconfig.json
