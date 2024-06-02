@@ -42,20 +42,53 @@ sudo docker run --name pgadmin --network=postgres-network -p 15432:80 -e "PGADMI
 ![alt text](image.png)
 
 Structure:
-my-project/
+```
+api-book-store/
 │
 ├── src/
 │   ├── controllers/
-│   │   └── userController.ts
+|   |   ├── bookcustomer.controller.ts
+|   |   ├── customer.controller.ts
+|   |   ├── user.controller.ts 
+│   │   └── book.controller.ts
 │   ├── services/
-│   │   └── userService.ts
+|   |   ├── book.service.ts
+|   |   ├── bookcustomer.service.ts
+|   |   ├── customer.service.ts
+│   │   └── user.service.ts
 │   ├── repositories/
-│   │   └── userRepository.ts
-│   └── models/
-│       └── user.ts
+|   |   ├── book.repository.ts
+|   |   ├── bookcustomer.repository.ts
+|   |   ├── customer.repository.ts
+│   │   └── user.repository.ts
+│   ├── routes/
+|   |   ├── book.routes.ts
+|   |   ├── bookcustomer.routes.ts
+|   |   ├── customer.routes.ts
+|   |   ├── index.ts
+│   │   └── user.routes.ts
+│   ├── middlewares/
+|   |   ├── auth.ts
+│   │   └── errors.ts
+│   └── exceptions/
+|       ├── http.exception.ts
+|       ├── internal-server-error.ts
+|       ├── unauthorized.ts
+│       └── bad-requests.ts
 ├── __tests__/
-│   ├── userController.test.ts
-│   ├── userService.test.ts
-│   └── userRepository.test.ts
+│   ├── controllers/
+|   |   ├── bookcustomer.controller.test.ts
+|   |   ├── customer.controller.test.ts
+|   |   ├── user.controller.test.ts 
+│   │   └── book.controller.test.ts
+│   └──  services/
+|       ├── book.service.test.ts
+|       ├── bookcustomer.service.test.ts
+|       ├── customer.service.test.ts
+│       └── user.service.test.ts
 ├── jest.config.js
+├── package.json
+├── README.md
 └── tsconfig.json
+
+```
