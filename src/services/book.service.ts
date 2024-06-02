@@ -7,7 +7,7 @@ class BookService{
     async createBook (code:string, title:string, author:string, quantity:number, price:number) {
 
         let bookExists = await findBookByCode(code);
-    
+        
         if(bookExists) {
             throw new BadRequestsException(ErroMessage.BOOK_ALREADY_EXISTS, ErroCode.BadRequest);
         }
@@ -18,7 +18,7 @@ class BookService{
             author,
             quantity,
             price
-        )
+        );
     }
     
     async listAll() {

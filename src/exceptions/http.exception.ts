@@ -48,5 +48,6 @@ export enum ErroMessage {
     BOOK_NOT_FOUND = 'Book does not exists',
     CUSTOMER_NOT_FOUND = 'Customer does not exists',
     BOOK_SOLD_OUT = 'Book out of stock',
-    INVALIDY_QUANTITY= 'Invalidy quantity'
+    INVALIDY_QUANTITY= 'Invalidy quantity',
+    DATABASE_INTERNAL_ERROR = 'Please make sure your database server is running.'
 }

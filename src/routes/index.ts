@@ -6,9 +6,9 @@ import bookcustomerRoutes from './bookcustomer.routes';
 
 const rootRouter: Router = Router();
 
-rootRouter.use('/user', userRoutes);
-rootRouter.use('/book', bookRoutes); 
-rootRouter.use('/customer', customerRoutes); 
+rootRouter.use('/users', userRoutes);
+rootRouter.use('/books', bookRoutes); 
+rootRouter.use('/customers', customerRoutes); 
 rootRouter.use('/bc', bookcustomerRoutes); 
 
 export default rootRouter;
