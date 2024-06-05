@@ -1,7 +1,6 @@
 import BookService from '../../services/book.service';
-import { createBookDB, findAll, findBookByCode } from '../../repositories/book.repository';
+import { createBookDB, findAll, findBookByCode, findBookById } from '../../repositories/book.repository';
 import { BadRequestsException } from '../../exceptions/bad-requests';
-import { existsSync } from 'fs';
 import { ErroCode, ErroMessage } from '../../exceptions/http.exception';
 
 
@@ -17,8 +16,7 @@ describe('book service test', () => {
 
     beforeEach(async () => {
         bookService = new BookService();
-        (createBookDB as jest.Mock).mockClear();
-        (findBookByCode as jest.Mock).mockClear();
+        jest.clearAllMocks();
       });
 
       describe('create book', () => {
@@ -94,6 +92,25 @@ describe('book service test', () => {
             let result = await bookService.listAll();
 
             expect(result).toEqual(books)
+        });       
+
+
+        test('test should return one book by id', async () => {
+
+            let book = {
+                    id: "808d9273-58db-4e56-a8d9-e2efa1cd8adc",
+                    code:"12211", 
+                    title:"Test Service", 
+                    author:"John Doe", 
+                    quantity: 10, 
+                    price:19
+                };
+
+            (findBookById as jest.Mock).mockResolvedValue(book);
+
+            let result = await bookService.findById(book.id);
+
+            expect(result).toEqual(book)
         });       
 
     });

@@ -30,7 +30,7 @@ class UserService {
         let user = await findUser(email);
     
         if(!user){
-            throw new BadRequestsException(ErroMessage.USER_ALREADY_EXISTS, ErroCode.BadRequest);
+            throw new BadRequestsException(ErroMessage.USER_NOT_FOUND, ErroCode.BadRequest);
         }
     
         if(!compareSync(password, user.password)){

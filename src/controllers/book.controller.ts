@@ -6,6 +6,7 @@ const bookService = new BookService();
 export const createBook = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
+
         const { code, title, author, quantity, price }= req.body;
 
         let book = await bookService.createBook(code, title, author, quantity, price);

@@ -1,6 +1,6 @@
 # Book Store
 
-book store api is used for a book store to control books. The api allow the user register clients, books, and which book each client bought.
+book store api is used for a store to control books. The api allows the user register clients, books, and which book each client bought.
 
 
 Requirements:
@@ -9,12 +9,12 @@ Requirements:
  
 
 Dependencies:
-express, prisma ORM, bcrypt, jsonwebtoken, lodash, dotenv
+express, prisma ORM, bcrypt, jsonwebtoken, lodash, dotenv, jest for test
 
-- next features: 
+Next features: 
 financial
 
-Initialize project:
+Initialize project: npm install
 
 Routes:
 
@@ -25,9 +25,9 @@ generate migration:
  npx prisma migrate dev --name namemigration 
 ```
 
-run: yarn start 
+run: ```yarn run start```
 
-run coverage test: npm test -- --coverage
+run coverage test: ```npm test -- --coverage```
 
 Create postgres container:
 
